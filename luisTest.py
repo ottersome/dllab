@@ -1,8 +1,8 @@
 # %% Imports
+#import matplotlib.pyplot as plt
+#import numpy as 
 import numpy as np
 import network
-import pandas as pd
-from keras.datasets import mnist
 
 
 # %% Read Mnist
@@ -42,25 +42,15 @@ def getMnist10():
 nn_architecture = [
      {"input_dim": 28*28, "output_dim": 100, "activation": "relu"},
      {"input_dim": 100, "output_dim": 200, "activation": "relu"},
-     {"input_dim": 200, "output_dim": 10, "activation": "softmax"},
+     {"input_dim": 200, "output_dim": 10, "activation": "sigmoid"},
      ]
 
 # %% Importing data
 
-# print("Importing Data...")
-# X,Y  = getMnist10()
-
-(X, Y), (X_test, y_test) = mnist.load_data()
-X = X.reshape(60000,28*28)
-X = X/255
-s = pd.Series(Y)
-Y = pd.get_dummies(s)
-Y = np.transpose(Y).to_numpy()
-X = np.transpose(X)
-
-# %% Network training
+print("Importing Data...")
+X,Y  = getMnist10()
 net = network.network(121312,nn_architecture)
 print("Training nekwork")
-res = net.trainNetwork(X,Y)
+net.trainNetwork(np.transpose(X))
 
 
