@@ -1,5 +1,5 @@
 from tensorflow.examples.tutorials.mnist import input_data
-from __future__import absolute_import, division, print_function
+from __future__ import absolute_import, division, print_function
 import tensrflow as tf
 from tensorflow.keras import Model,layers
 import numpy as np
