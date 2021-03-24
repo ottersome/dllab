@@ -6,6 +6,8 @@ import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import tensorflow_model_optimization as tfmot
+from tensorflow_model_optimization.python.core.sparsity.keras.prune import *
+#%load_ext tensorboard
 # Load MNIST dataset
 mnist = tf.keras.datasets.mnist
 (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
